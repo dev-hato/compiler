@@ -5,8 +5,6 @@ FROM debian:bullseye-slim
 
 # branch
 ARG branch=0.19.1
-# commit or tag
-ARG commit=HEAD
 
 # Install required packages
 RUN apt-get update \
@@ -49,7 +47,6 @@ RUN git clone -b $branch https://github.com/elm/compiler.git
 
 # Build a statically linked elm binary
 WORKDIR /tmp/compiler
-RUN git checkout $commit
 RUN rm worker/elm.cabal
 RUN cabal new-update
 RUN cabal new-configure --disable-executable-dynamic --ghc-option=-optl=-static --ghc-option=-optl=-pthread
