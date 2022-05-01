@@ -52,7 +52,7 @@ WORKDIR /tmp/compiler
 RUN git checkout $commit
 RUN rm worker/elm.cabal
 RUN cabal new-update
-RUN cabal new-configure --disable-executable-dynamic --ghc-option=-optl=-static --ghc-option=-optl=-pthread
+RUN cabal new-configure
 RUN cabal new-build
 RUN strip -s ./dist-newstyle/build/*-linux/ghc-*/elm-*/x/elm/build/elm/elm
 RUN cp ./dist-newstyle/build/*-linux/ghc-*/elm-*/x/elm/build/elm/elm /usr/local/bin/elm
