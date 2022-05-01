@@ -17,6 +17,7 @@ jobs:
     permissions:
       packages: write
     if: github.event_name == 'push' || github.repository == github.event.pull_request.head.repo.full_name
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v3
       - name: Login to GitHub Container Registry
