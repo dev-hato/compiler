@@ -44,5 +44,4 @@ jobs:
           file: installers/linux/Dockerfile
           tags: ghcr.io/dev-hato/compiler:${{env.TAG_NAME}}
           platforms: |
-            linux/amd64
             linux/arm64
