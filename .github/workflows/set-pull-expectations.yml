@@ -2,12 +2,16 @@ on:
   pull_request_target:
     types: [opened]
 
+permissions: {}
 jobs:
   comment-on-pull:
+    timeout-minutes: 10
+    permissions:
+      pull-requests: write
     name: Comment On Pull
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@ffc2c79a5b2490bd33e0a41c1de74b877714d736 # v3.2.0
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
